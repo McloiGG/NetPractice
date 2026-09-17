@@ -24,7 +24,7 @@
 
 > NetPractice is a hands-on networking project from **[42 School](https://www.42network.org)** designed to introduce essential computer networking fundamentals.
 
-Through interactive problem-solving, this general practical exercise features **10 progressive levels** that helps you master the following networking concepts.
+Through interactive problem-solving, this general practical exercise features **10 progressive levels** that help you master the following networking concepts.
 
 
 - [TCP/IP addressing](#tcpip-addressing)
@@ -89,7 +89,7 @@ At the **top of your window** in the exercises, you will see a button named **[G
 
 ![Get My Config](assets/GetMyConfigHover.png)
 
-Click on it to download your configuration whenever you need to (i.e. completed an exercise).
+Click on it to download your configuration whenever you need to. For example, after completing an exercise.
 
 ## Submission Requirements
 
@@ -466,6 +466,8 @@ It identifies the Application Layer protocol and provides session multiplexing.
 
 - **[Dynamic/private/ephemeral ports (49152–65535)](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Dynamic,_private_or_ephemeral_ports)**: Private or customized services, temporary purposes, and automatic allocation of ephemeral ports. *(cannot be registered with IANA)*
 
+*Click the hypertext links to explore their respective Wikipedia’s table of port numbers and their associated services.*
+
 ### Protocols Used
 
 ```text
@@ -495,7 +497,7 @@ When establishing the connection, each endpoint will calculate their local recei
 
 - **Data sequencing**
 
-   It **segments** the byte stream determined by the receivers' MSS and assigns **sequence numbers** to the **bytes** to track the order for reassembly.
+   It **segments** the byte stream into payloads limited by the receiver's MSS and path constraints assigns **sequence numbers** to the **bytes** to track the order for reassembly.
    > The **Initial Sequence Number (ISN)** is generated to be difficult to predict during the establishment phase.
 - **Reliable data transfer**
 
@@ -505,15 +507,17 @@ When establishing the connection, each endpoint will calculate their local recei
    > If data is missing but later data still arrives, the receiver continues acknowledging the first missing byte until the gap is filled.
 - **Error recovery**
 
-   If a segment remains unacknowledged until the **Retransmission Timeout (RTO)** expires, or if the sender receives **3 duplicate ACKs**, the sender would retransmits the missing data.
+   If a segment remains unacknowledged until the **Retransmission Timeout (RTO)** expires, or if the sender receives **3 duplicate ACKs**, the sender retransmits the missing data.
 
    Once the missing segment is successfully received and fills the gap, the receiver sends a **cumulative ACK** acknowledging all contiguous data that had previously been buffered.
 - **Flow control**
 
-   The destination host dynamically updates the **window size** based on the available buffer capacity to the sender.
-   > Window Size is the maximum amount of unacknowledged data (bytes) the sender is allowed to transmit at once. Determined by either the **receive window `rwnd`** that protects receiver capacity or the **congestion window `cwnd`** that limits traffic based on network conditions, the smaller window limits outstanding data.
+- **Flow control**
 
-   Everytime an ACK for new bytes (not a duplicate) is received, the **sliding window** slides forward (right) based on the receive window to allow more unacknowledged segments to be transmitted, helping to prevent the receiver from being overloaded.
+   The receiver advertises a **receive window (rwnd)** based on its available buffer capacity. This **window size**, measured in bytes, limits how much unacknowledged data the receiver allows the sender to have outstanding.
+
+   TCP uses a **sliding window**, when an ACK acknowledges new bytes, the window's left edge advances to the acknowledgment number (like sliding to the right). This can make room for more data to be sent while respecting the receiver's advertised capacity.
+   > The sender also maintains a **congestion window (cwnd)** to account for network conditions. Normally, the smaller of `rwnd` and `cwnd` limits outstanding data.
 
 ### UDP (User Datagram Protocol)
 
@@ -590,7 +594,7 @@ It translates between the application's internal representation and an agreed fo
 
 - **Translation and Encoding**
 
-   Converts data into an agreed format for transmission and interpret the representation it at the receiving endpoint. This includes rules for:
+   Converts data into an agreed format for transmission and interpret the received representation at the receiving endpoint. This includes rules for:
 
   - **Character encoding:** ASCII / UTF-8
   - **Numeric representation:** integer sizes / byte order / floating-point formats
@@ -600,11 +604,12 @@ It translates between the application's internal representation and an agreed fo
 - **Encryption and Decryption**
 
    Protects the **confidentiality** by transforming readable data like plaintext into an encrypted representation like ciphertext and decrypts it at the receiving endpoint using the appropriate keys.
-   > Compression and encryption are not mandatory for every exchange, but it prevents observers without the key from reading its contents. Encryption can also be implemented at other layers.
+   > Encryption is not mandatory for every exchange, but it prevents observers without the key from reading its contents. Encryption can also be implemented at other layers.
 
 - **Compression and Decompression**
 
-   Ccompacts the data to reduce the amount transmitted, the receiving endpoint will decompress it.
+   Compacts the data to reduce the amount transmitted, the receiving endpoint will decompress it.
+   > Just like encryption, compression is also not mandatory for every exchange, but it does reduce packet sizes, save network bandwidth, and speed up communication over slow or congested links.
 
 ### Protocols Used
 
@@ -616,7 +621,7 @@ OSI connection-oriented Presentation Protocol (ITU-T X.226)
 
 > **Core Function:** provides network services to applications and defines the rules for application-level communication.
 
-It defines the **messages, operations, and responses** that communicating applications use to exchange information. It describes the **network communication functions** used by applications, rather than the application itself and it's functions.
+It defines the **messages, operations, and responses** that communicating applications use to exchange information. It describes the **network communication functions** used by applications, rather than the application itself and its functions.
 
 ### Protocols Used
 
@@ -629,7 +634,7 @@ DNS (Resolving domain names and retrieving DNS records)
 SSH (Secure remote access)
 ```
 
-> Based on the resource, it's referred to etiher layer 4, 5 or 7 (yes, layer 5 and 6 will just not exist in the resoucres that reffered to it as layer 7).
+> Depending on the resource's numbering convention, the application layer may be called Layer 4, 5, or 7. Some resources retain OSI numbering when describing TCP/IP, labeling it Layer 7 even though session and presentation functions are grouped into the application layer rather than shown as separate layers.
 
 <br>
 
@@ -649,7 +654,7 @@ I used AI to:
 - ✅ Clarify concepts that were difficult to understand.
 - ✅ Explore hypothetical situations that were not covered in the provided resources.
 - ✅ Perform a first layer of double-checking and verification of my work.
-- ✅ Improvise my content in a more readable manner.
+- ✅ Improve the readability of my content.
 - ❌ Generate or solve the project's exercises.
 - ❌ Write the content of the `README.md`.
 
