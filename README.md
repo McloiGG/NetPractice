@@ -24,7 +24,7 @@
 
 > NetPractice is a hands-on networking project from **[42 School](https://www.42network.org)** designed to introduce essential computer networking fundamentals.
 
-This general practical exercise features **10 progressive levels** that teach through interactive problem-solving to  master:
+Through interactive problem-solving, this general practical exercise features **10 progressive levels** that helps you master the following networking concepts.
 
 
 - [TCP/IP addressing](#tcpip-addressing)
@@ -33,7 +33,7 @@ This general practical exercise features **10 progressive levels** that teach th
 - [routing](#routing)
 - [OSI layers](#osi-layers)
 
-by troubleshooting and configuring non-functioning network diagrams in a browser-based training that provides practical experience in network administration, which helps in real-world system administration and networking challenges.
+You learn by troubleshooting and configuring non-functioning network diagrams in a browser-based training that provides practical experience in network administration, which helps in real-world system administration and networking challenges.
 > Examples include learning how to configure IP addresses, connect devices through a router, and understand the role of a gateway within a network.
 
 <br>
@@ -42,19 +42,19 @@ by troubleshooting and configuring non-functioning network diagrams in a browser
 
 # Instructions
 
+> **If you cloned this repo** and don't mind practicing on a **a possibly outdated version**, the extracted files (`version 1.9`) should be in the `net_practice.1.9/net_practice` folder and so you can skip the following steps.
+
+1. Download the **latest** `net_practice.{version-number}.tgz` file from the [42 project page](https://projects.intra.42.fr/projects/netpractice) ***if you are an active 42 cadet***.
+   > If you're not an active 42 cadet, there is a `net_practice.1.9.tgz` at the root of this repository. The repository includes version 1.9, which may be older than the current release.
+2. Extract the files into the repository root. This should create a `net_practice.{version-number}/net_practice` directory.
+
 > Due to technical design and security constraints on various web browsers, it is required to use a local web server to deliver NetPractice’s web pages.
-
-> **If you cloned this repo** and don't mind practicing on a **possible deprecated version**, the extracted files (`version 1.9`) should be in the `net_practice.1.9/net_practice` folder and so you can skip the following steps.
-
-1. Download the **latest** `net_practice.{version-number}.tgz` file in the [42 project page](https://projects.intra.42.fr/projects/netpractice) ***if you are an active 42 cadet***.
-   > If you're not an active 42 cadet, there is a `net_practice.1.9.tgz` at the root of this repository. Although it may be deprecated as it is in version 1.9.
-2. Extract the files into the repository root. This should create a `net_practice.{version-number}/net_practice`.
 
 ## Executing/Running The Training Interface
 
 1. In the **folder with the extracted files**, run the `run.sh` file.
 
-   ***Assuming** you extracted the files at the **repository root** without assigning it a name:*
+   ***Assuming** you extracted the files into the **repository root** without renaming the extracted directory:*
 
    ```bash
    cd net_practice.1.9/net_practice
@@ -78,7 +78,7 @@ by troubleshooting and configuring non-functioning network diagrams in a browser
    ![NetPractice Homepage](assets/NetPractice-homepage.png)
 
    **If the page did not open automatically**, try opening the page **manually** through the provided URL by either:
-   > navigating to the URL with **(ctrl + click) when hovering** on top of the URL in the terminal output
+   > navigating to the URL by doing a **(ctrl + click) when hovering** on top of the URL in the terminal output
 
    **OR** *(**Especially** if you ran it manually with the python command)***:**
    > In your web browser navigate to the URL **with the chosen port number** like: [`http://localhost:49242`](http://localhost:49242).
@@ -89,13 +89,11 @@ At the **top of your window** in the exercises, you will see a button named **[G
 
 ![Get My Config](assets/GetMyConfigHover.png)
 
-Click on it to download your configuration whenever you need to.
+Click on it to download your configuration whenever you need to (i.e. completed an exercise).
 
 ## Submission Requirements
 
 > Refer to the header **[Submission Details](#submission-details)**.
-
-> Before moving to the next level, don’t forget to export your configuration using the **[Get my config]** button so you can add it to the repository.
 
 After exporting the configuration file:
 
@@ -108,11 +106,536 @@ After exporting the configuration file:
 
 # Resources
 
-| Resource                                                                                                                              |                                                                    Credit                                                                     | Purpose                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------: | --------------------------------------------- |
-| [Subject PDF](en.subject.pdf)                                                                                                         |               [![42 School](https://img.shields.io/badge/42_School-000000?logo=42&logoColor=white)](https://www.42network.org)                | Project requirements and objectives           |
-| [Free CCNA v1.1 200-301 \| Complete Course](https://youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ&si=aLRmLDhJQE63_6Ah) | [![Jeremy's IT Lab](https://img.shields.io/badge/Jeremy's_IT_Lab-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@JeremysITLab) | Primary reference for the networking topics   |
-| [Writing on GitHub](https://docs.github.com/en/get-started/writing-on-github)                                                         |           [![GitHub Docs](https://img.shields.io/badge/GitHub_Docs-181717?logo=github&logoColor=white)](https://docs.github.com/en)           | Markdown formatting guide for the `README.md` |
+| Resource                                                                                                                              |                                                                    Credit                                                                     | Purpose                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------ |
+| [Subject PDF](en.subject.pdf)                                                                                                         |               [![42 School](https://img.shields.io/badge/42_School-000000?logo=42&logoColor=white)](https://www.42network.org)                | Project requirements and objectives                    |
+| [Free CCNA v1.1 200-301 \| Complete Course](https://youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ&si=aLRmLDhJQE63_6Ah) | [![Jeremy's IT Lab](https://img.shields.io/badge/Jeremy's_IT_Lab-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@JeremysITLab) | Primary reference for the networking topics            |
+| [Writing on GitHub](https://docs.github.com/en/get-started/writing-on-github)                                                         |           [![GitHub Docs](https://img.shields.io/badge/GitHub_Docs-181717?logo=github&logoColor=white)](https://docs.github.com/en)           | Markdown formatting guide for the `README.md`          |
+| [Nicholas Andre Networking Lectures](https://www.youtube.com/watch?v=g_-vbdv-wT4&list=PLmqHle8aSO_EKziRtNpYM6XHgi-jlJoD1)             |  [![Nicholas Andre](https://img.shields.io/badge/Nicholas_Andre-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@mrnickandre)   | More info on networking by a great networking lecturer |
+| Wikipedia                                                                                                                             |     [![Wikipedia](https://img.shields.io/badge/Wikipedia-000000?logo=wikipedia&logoColor=white)](https://en.wikipedia.org/wiki/Main_Page)     | More detailed specifics and images                     |
+
+---
+
+## Concepts
+
+<details>
+<summary><strong>TCP/IP</strong></summary>
+
+# TCP/IP
+
+> The **Internet Protocol Suite**, often called **TCP/IP**, is a family of protocols that enables communication over networks.
+
+Such Protocols include:
+
+- `IP`
+- `TCP`
+- `UDP`
+- `HTTP`
+- `HTTPS`
+- `DNS`
+- `ICMP`
+- `Ethernet`
+- `Wi-Fi`
+
+From this suite of protocols we can **group these protocols into layers** based on their **specific services and responsibilities** to build what we call the **TCP/IP model**.
+
+It has a similar structure to the [OSI Model](#osi-model), but with fewer layers *(usually `4` or `5`)*.
+
+> The TCP/IP protocol suite underpins the Internet.
+
+---
+
+# Protocols and Standards
+
+## Protocols
+
+> A **protocol** is a set of rules that defines how data is communicated between devices.
+
+Think of it as a **language** for devices, devices using incompatible protocols can't communicate between each other.
+
+### Issues in the Early Days
+
+In the **early days of networking**, vendors often defined **proprietary protocols for their own products**. This made communication with other vendors' products difficult.
+
+## Standards
+
+> A **standard** is an agreed-upon specification describing how a technology or protocol should operate.
+
+To solve the [issue](#issues-in-the-early-days) discussed, **today's** networks use **standard, vendor-neutral** protocols and technologies.
+
+Think of it like the **blueprint or ruleset** of the protocols defined by **standards organizations and communities**, protocols are **defined** based on the declared **standard** to ensure compatibility between different vendors' products.
+
+For example, a MacBook can access a website hosted on a Linux server because both support the relevant standardized protocols.
+
+# History of TCP/IP
+
+## ARPANET
+
+> **ARPANET** is a network that came online in **1969** to connect mainframes at U.S. universities and research laboratories
+
+*It was funded by the US Department of Defense's **ARPA** (Advanced Research Projects Agency)*
+
+It used a protocol called **NCP** (Network Control Program) as TCP/IP did not exist yet.
+> NCP was completed in 1970 and implemented during 1971–1972.
+
+![ARPANET](assets/ARPANET.png)
+
+## The Development of TCP
+
+In **1973**, *Vint Cerf* and *Bob Kahn* from *DARPA (Defense Advanced Research Projects Agency)* began developing the **Transmission Control Program (TCP)**. They published their design in 1974.
+
+The protocol later evolved into two protocols:
+
+- **Transmission Control Protocol (TCP)**
+- **Internet Protocol (IP)**
+
+These two protocols form the foundation of the protocol suite widely known as **TCP/IP**.
+
+> ARPANET transitioned fully to TCP/IP in **1983**.
+
+TCP/IP became dominant because it:
+
+- was based on open standards
+- could be implemented by any vendor
+- could operate over many different types of networks
+
+# Standards Organizations
+
+## IEEE (Institute of Electrical and Electronics Engineers)
+
+> **IEEE** develops many local networking technologies used on **local area networks (LAN)**.
+
+They define the standards for the **physical specifications** and **message formats** of technologies such as:
+
+- **Ethernet** *(IEEE 802.3)*
+- **Wi-Fi** *(IEEE 802.11)*
+
+## IETF (Internet Engineering Task Force)
+
+> **IETF** is an **open community** that defines and develops many protocols used across the Internet.
+
+They publish their standards in documents called **RFCs (Requests For Comments)** for their protocols such as:
+
+- TCP
+- IP
+- UDP
+- HTTP
+- DNS
+
+# Layered Models
+
+Networking **involves many different jobs** to transmit a message from one device to another.
+
+> Therefore, a **model** is a conceptual framework for organizing networking functions that groups related jobs into layers so that **each layer** can provide its **specialized** services to the layer above using the services of the layer below **(Adjacent-layer interaction)**.
+
+Each protocol **primarily** operates at a particular layer, although real implementations may involve interactions across layers.
+
+Aside from **adjacent-layer interaction**, when each layer **logically communicates** to its corresponding layer on other devices it's called **same-layer interaction**.
+
+The layers are **modular**. We can replace the protocols at different layers without redesigning the entire stack, provided the replacement preserves the services and interfaces that other layers depend on.
+
+> A network stack is **a set of networking protocols** and their implementations that **work together across layers**.
+
+Different sources use models with varying numbers of layers, notably:
+
+- 4-layer TCP/IP models
+- 5-layer TCP/IP models
+- [7-layer OSI models](#osi-model)
+
+*The following table shows various such networking models. The number of layers varies between three and seven.*
+
+![Different versions of networking models](assets/NetwrokingModels.png)
+
+## The TCP/IP Model
+
+> We'll be using a **5-layer TCP/IP model** for our example TCP/IP model.
+
+|                           Layer                            | Purpose                                                                                              |
+| :--------------------------------------------------------: | ---------------------------------------------------------------------------------------------------- |
+|     [Application](#the-upper-layers-of-the-osi-model)      | Protocols for communication between application processes; to create and interpret data              |
+|           [Transport](#layer-4-transport-layer)            | Provides end-to-end communication between application processes by port numbers                      |
+|       [Internet](#layer-3-network-or-internet-layer)       | Provides host-to-host packet delivery across interconnected networks using IP addressing and routing |
+| [Local Network](#layer-2-data-link-or-local-network-layer) | Provides node-to-node delivery within a local network using MAC addresses and switches               |
+|            [Physical](#layer-1-physical-layer)             | Sends bits as electrical, optical, or radio signals over the physical medium                         |
+
+> For a detailed description of the layers, including OSI layers 5–7, refer to the [OSI Layers](#osi-layers) section.
+
+# Data Flow
+
+![Data Flow](assets/DataFlow.jpg)
+
+# Encapsulation & Decapsulation
+
+## Encapsulation
+
+> **Encapsulation** is the process of adding information as data moves **down** the protocol stack.
+
+![Encapsulation](assets/Encapsulation.png)
+
+**Data** is prepared by the Application layer of the TCP/IP model (the abstraction of the top 3 [upper layers of the OSI model](#the-upper-layers-of-the-osi-model)).
+
+As the message moves down the stack, each layer encapsulates the data with a **header** including the information needed for that layer.
+
+Layer 2 also adds a **trailer** that the receiving device uses to **check for transmission errors**.
+
+As the image suggests, the **L2 header** is transmitted first, and the **L2 trailer** is transmitted last.
+
+## Decapsulation
+
+> The **reverse process** of encapsulation.
+
+![Decapsulation](assets/Decapsulation.png)
+
+Each step **examines** the information in the layer it's involved in (L2 trailer + header > L3 header > L4 header), then **removes** them as they go **up** the stack until the **data** is delivered to the layer 5.
+
+The application processes the data and, if needed, generates a response that goes back down the stack.
+
+# Protocol Data Units (PDUs)
+
+> A **Protocol Data Unit (PDU)** is a single unit of information composed of protocol-specific control information and user data.
+
+The contents of each PDU (everything encapsulated by that layer's header/trailer) are called the **payload**.
+
+## Layer 4 PDU
+
+![L4PDU](assets/L4PDU.png)
+
+|                  segment                  |              datagram              |
+| :---------------------------------------: | :--------------------------------: |
+| [TCP](#tcp-transmission-control-protocol) | [UDP](#udp-user-datagram-protocol) |
+
+## Layer 3 PDU
+
+![L3PDU](assets/L3PDU.png)
+
+## Layer 2 PDU
+
+![L2PDU](assets/L2PDU.png)
+
+<br>
+
+---
+
+</details>
+<details>
+<summary><strong>OSI</strong></summary>
+
+# OSI Model
+
+> **Open Systems Interconnection (OSI) Model**, often called **OSI Model**, is a conceptual model that categorizes and standardizes the different functions in a network.
+
+The goal was to create international, vendor-neutral networking standards that could unify existing proprietary stacks and potentially replace [TCP/IP](#tcpip).
+
+OSI protocols ended up being **too late** and **complex**, so TCP/IP *"won"* in **real world deployment**, although some OSI technologies are still used.
+
+> Although it's **not** the model used in modern networks, it still influences how network engineers think and talk about networks. It remains useful as a reference and teaching model and provides common terminology for discussing layers along with their functions.
+
+## History
+
+It was published by the *International Organization for Standardization (ISO)* in *1984*.
+
+Governments, including the US, **promoted** OSI as the preferred/recommended stack for **new deployments**.
+
+# OSI layers
+
+> # The lower layers of the OSI Model
+>
+> Some [TCP/IP models](#the-tcpip-model) abstract the bottom 2 layers of the OSI model into one **Network Access/Link Layer** because both handle communication over the **local network**.
+
+## Layer 1: Physical Layer
+
+> **Core Function:** Transmits and receives raw bitstreams over physical media using electrical, optical, or radio signals.
+
+It defines the physical, electrical, and mechanical specifications for carrying raw bits (`1`s and `0`s) across a connection. Layer 1 standards govern **physical signaling** (voltage levels, light pulses, radio frequencies) rather than message structure.
+
+### Key Focus Areas
+
+- **Hardware:** Cables, connectors, pinouts, Network Interface Cards (NICs)
+- **Transmission Dynamics:** Signal levels, voltage, bit rates, link speeds
+
+### Common Media Types
+
+- **Copper:** UTP / STP cables (e.g., 1000BASE-T Ethernet signaling)
+- **Optical:** Single-mode and multi-mode fiber optic cables (e.g., 10GBASE-LR)
+- **Wireless:** Wi-Fi radios and antennas (e.g., 2.4GHz / 5GHz RF modulation)
+
+## Layer 2: Data Link (or Local Network) Layer
+
+> **Core Function:** delivers a **frame** across a local network/link using MAC addresses and Layer 2 protocols.
+
+It defines how data is formatted for transmission over a physical medium. It detects and possibly corrects [Physical Layer (Layer 1)](#layer-1-physical-layer) errors.
+
+It uses **MAC (Media Access Control) addresses** to identify network interfaces and performs **[hop-to-hop delivery](#what-is-a-hop)** on **frames** across a local link using **node-to-node delivery**.
+
+### What is Node-to-Node Delivery?
+
+> **Node-to-node delivery** describes the transfer of a frame between adjacent devices along a local network path.
+
+Example:
+
+```text
+PC → Switch → Router
+```
+
+The frame travels from the PC to the switch, then from the switch to the router.
+
+The switch *(layer 2)* forwards the frame without changing its source or destination MAC address. The destination MAC remains that of the router's receiving interface. This is partly why [switches are not considered a hop](#why-layer-2-switches-do-not-count-as-hops).
+
+> Layer 2 provides the local delivery needed to reach the [next hop](#what-is-a-hop) selected by Layer 3.
+
+### Protocols Used
+
+``` text
+Ethernet (IEEE 802.3)
+Wi-Fi (IEEE 802.11)
+```
+
+## Layer 3: Network (or Internet) Layer
+
+> The Internet (internetwork = between networks) Layer provides **host-to-host packet delivery between hosts** across multiple networks using IP addressing and routing.
+
+It uses **IP addresses** to identify the hosts in the network.
+
+**Routers** operate primarily at Layer 3 and examine Layer 3 information, especially the destination IP address, to determine where to forward the message toward its destination host.
+
+> The destination IP remains the same throughout the network path (Assuming no **Network Address Translation (NAT)** that can rewrite IP addresses).
+
+### What is a Hop?
+
+> A **hop** is one step towards the next router or directly reachable destination host along a packet's path.
+
+Layer 3 selects the **next hop**, and Layer 2 carries the
+packet across the local network to reach it using **[node-to-node delivery](#what-is-node-to-node-delivery)**.
+
+#### Why Layer 2 Switches Do Not Count as Hops
+
+Layer 2 switches forward frames locally **without modifying the IP TTL header** unlike Layer 3 routing hops. Essentially they're **part of the Layer 2 infrastructure** connecting devices on the local network.
+
+A router decrements the TTL when forwarding an IP packet.
+
+#### Example Path
+
+![Hop-to-hop path](assets/Hop-to-hop.png)
+
+*Legend: (G1) & (G2) = Router interfaces (GigabitEthernet ports)*
+
+For each Ethernet hop, the sender places the packet in a frame addressed to the next hop's MAC address, obtained from its **ARP cache or through ARP**.
+
+### How Is the Next Hop Determined?
+
+A host or router checks the packet's destination IP against its
+routing table and selects the most specific matching route.
+
+- **Directly connected destination:** send to the destination itself.
+- **Route through a gateway:** send to that gateway.
+- **No more specific match:** use the default route, if available.
+
+Each router repeats this decision using its own routing table.
+
+On an IPv4 Ethernet network, the sender needs the next hop's **MAC address**.
+
+It checks its ARP cache and, if necessary, sends an **ARP (Address Resolution Protocol) request** to resolve the chosen next-hop IP address to a MAC address.
+
+### Protocols Used
+
+``` text
+IP (IPv4, IPv6)
+ICMP (Internet Control Message Protocol)
+```
+
+## Layer 4: Transport Layer
+
+> **Core Function:** provides **end-to-end (process-to-process or host-to-host) communication** between applications running on hosts.
+
+A host can run **multiple network applications simultaneously**. Layer 4 is the one to add the information ([port numbers](#port-numbers)) needed to **distinguish the applications' communication endpoints** on those hosts.
+
+The communicating hosts handle the Transport Layer. Intermediate routers **normally** forward the packets using [Layer 3 information](#layer-3-network-or-internet-layer), so the transfer of layer 4 data is **transparent** to the lower levels.
+
+### Port Numbers
+
+> A **port number** is a 16-bit logical number that identifies a transport endpoint on a host. *NOT the physical interfaces/ports on network devices*.
+
+It identifies the Application Layer protocol and provides session multiplexing.
+> Session multiplexing is the process of running several message streams or sessions onto one logical link and keeps track of which messages belong to which sessions.
+
+*Internet Assigned Numbers Authority (IANA)* divided the port numbers into **three** ranges:
+
+- **[Well-known/*system ports* (0–1023)](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Well-known_ports)**: **System processes** that provide widely used types of network services.
+
+- **[Registered ports (1024–49151)](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Registered_ports)**: Assigned for specific services upon application by a **requesting entity/vendor**.
+
+- **[Dynamic/private/ephemeral ports (49152–65535)](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Dynamic,_private_or_ephemeral_ports)**: Private or customized services, temporary purposes, and automatic allocation of ephemeral ports. *(cannot be registered with IANA)*
+
+### Protocols Used
+
+```text
+TCP (Transmission Control Protocol)
+UDP (User Datagram Protocol)
+```
+
+### TCP (Transmission Control Protocol)
+
+> TCP is a **connection-oriented** protocol that provides reliable, ordered byte-stream delivery.
+
+TCP takes the application's data as a **continuous byte stream**, then **segments that byte stream** into TCP segments for transmission.
+
+<p align="center">TCP segment header</p>
+
+![TCPHeader](assets/TCPHeader.png)
+
+#### How it ensures **Connection and Termination**
+
+| 3-Way handshake (Establishment) | ![TCPThreeWayHandshake](assets/TCPThreeWayHandshake.png) |
+| :-----------------------------: | :------------------------------------------------------: |
+|  4-Way Handshake (Termination)  |  ![TCPFourWayHandshake](assets/TCPFourWayHandshake.png)  |
+
+When establishing the connection, each endpoint will calculate their local receive **Maximum Segment Size (MSS)** and advertise it to the other. Each sender limits TCP payload size using its peer's MSS and the path constraints.
+
+#### Features to ensure **reliable data transfer:**
+
+- **Data sequencing**
+
+   It **segments** the byte stream determined by the receivers' MSS and assigns **sequence numbers** to the **bytes** to track the order for reassembly.
+   > The **Initial Sequence Number (ISN)** is generated to be difficult to predict during the establishment phase.
+- **Reliable data transfer**
+
+   The destination host acknowledges received TCP data by sending an **acknowledgement number** with the ACK flag set.
+
+   The acknowledgement number represents the **sequence number of the next byte the receiver expects**.
+   > If data is missing but later data still arrives, the receiver continues acknowledging the first missing byte until the gap is filled.
+- **Error recovery**
+
+   If a segment remains unacknowledged until the **Retransmission Timeout (RTO)** expires, or if the sender receives **3 duplicate ACKs**, the sender would retransmits the missing data.
+
+   Once the missing segment is successfully received and fills the gap, the receiver sends a **cumulative ACK** acknowledging all contiguous data that had previously been buffered.
+- **Flow control**
+
+   The destination host dynamically updates the **window size** based on the available buffer capacity to the sender.
+   > Window Size is the maximum amount of unacknowledged data (bytes) the sender is allowed to transmit at once. Determined by either the **receive window `rwnd`** that protects receiver capacity or the **congestion window `cwnd`** that limits traffic based on network conditions, the smaller window limits outstanding data.
+
+   Everytime an ACK for new bytes (not a duplicate) is received, the **sliding window** slides forward (right) based on the receive window to allow more unacknowledged segments to be transmitted, helping to prevent the receiver from being overloaded.
+
+### UDP (User Datagram Protocol)
+
+> UDP is a **message-oriented, connectionless** protocol that sends individual messages called **datagrams** without providing guaranteed delivery.
+
+UDP takes **each application message** as a **separate UDP datagram**.
+
+#### What makes UDP message-oriented?
+
+- **Boundary Preservation**
+
+   Since each message is sent as an individual datagram, each application message is a **separate, recognizable unit** during transport.
+   > No framing or delimiter is needed to distinguish messages like TCP.
+- **Best-effort delivery**
+
+   UDP does not establish a connection before sending data nor does it provide TCP's mechanisms that **guarantee reliable and ordered delivery**.
+
+   Each datagram is sent **independently** without waiting for any acknowledgement from the receiver.
+   > If reliability is required, the **application layer** must implement the necessary mechanisms itself.
+- **Error detection**
+
+   UDP includes a checksum that can detect corruption in the UDP header and payload. The UDP checksum can be disabled in IPv4.
+   > It's **not error recovery**. A corrupted datagram can be discarded, but UDP does not retransmit it.
+- **Low overhead**
+
+   UDP has a small **8-byte header**:
+
+   ![UDPHeader](assets/UDPHeader.png)
+
+   > This can **reduce latency and processing overhead**, but UDP does **not inherently guarantee a faster transmission rate** than TCP.
+
+If the IP packet carrying a UDP datagram exceeds the outgoing link's **Maximum Transmission Unit (MTU)**, **IPv4 fragmentation** may occur (different from TCP segmentation). UDP itself still treats the application message as **one datagram**.
+> MTU (Maximum Transmission Unit) is the largest amount of data that a network link can carry in a single Layer 3 packet without fragmentation.
+
+<br>
+
+---
+
+> # The upper layers of the OSI Model
+>
+> In TCP/IP networks, the responsibilities of the top 3 layers (L5–L7) are often implemented together by application protocols and supporting software to form the data payload. Thus the [TCP/IP Model](#the-tcpip-model) groups them under a broader **Application Layer**, commonly compared with OSI Layers 5–7.
+>
+> Modern TCP/IP applications commonly implement the session (L5) and presentation (L6) functions they need within application protocols (L7) or supporting libraries, without using a separate OSI Session Layer protocol.
+
+## Layer 5: Session Layer
+
+> **Core Function:** establishes, manages, synchronizes, and terminates communication sessions used by applications.
+
+It uses the services of the [Transport Layer](#layer-4-transport-layer) to organize the dialogue between communicating endpoints.
+
+Where supported, it provides mechanisms for the upper layers to establish agreed **synchronization points** and coordinate returning to an agreed point after an interruption.
+> Session synchronization supports recovery, but does not automatically save application progress or make every transfer resumable.
+
+### What is a Session?
+
+> A **session** is an organized dialogue between communicating applications, with agreed rules for managing their interaction.
+
+**Session management** coordinates how that dialogue begins, progresses,
+and ends.
+
+### Protocols Used
+
+```text
+OSI connection-oriented Session Protocol (ITU-T X.225)
+```
+
+## Layer 6: Presentation Layer
+
+> **Core Function:** manages how data is represented so that communicating applications can interpret it consistently.
+
+It translates between the application's internal representation and an agreed format for transmission, using the services of the [Session Layer](#layer-5-session-layer).
+
+### Key Functions
+
+- **Translation and Encoding**
+
+   Converts data into an agreed format for transmission and interpret the representation it at the receiving endpoint. This includes rules for:
+
+  - **Character encoding:** ASCII / UTF-8
+  - **Numeric representation:** integer sizes / byte order / floating-point formats
+  - **Structured-data representation:** JSON / XML
+  - **Image representation and compression:** JPEG / PNG
+
+- **Encryption and Decryption**
+
+   Protects the **confidentiality** by transforming readable data like plaintext into an encrypted representation like ciphertext and decrypts it at the receiving endpoint using the appropriate keys.
+   > Compression and encryption are not mandatory for every exchange, but it prevents observers without the key from reading its contents. Encryption can also be implemented at other layers.
+
+- **Compression and Decompression**
+
+   Ccompacts the data to reduce the amount transmitted, the receiving endpoint will decompress it.
+
+### Protocols Used
+
+```text
+OSI connection-oriented Presentation Protocol (ITU-T X.226)
+```
+
+## Layer 7: Application Layer
+
+> **Core Function:** provides network services to applications and defines the rules for application-level communication.
+
+It defines the **messages, operations, and responses** that communicating applications use to exchange information. It describes the **network communication functions** used by applications, rather than the application itself and it's functions.
+
+### Protocols Used
+
+```text
+HTTP/HTTPS (Accessing web resources and services)
+FTP, TFTP (Transferring files)
+SMTP (Sending and relaying email)
+POP3, IMAP (Accessing received email)
+DNS (Resolving domain names and retrieving DNS records)
+SSH (Secure remote access)
+```
+
+> Based on the resource, it's referred to etiher layer 4, 5 or 7 (yes, layer 5 and 6 will just not exist in the resoucres that reffered to it as layer 7).
+
+<br>
+
+---
+
+</details>
 
 ---
 
@@ -126,14 +649,11 @@ I used AI to:
 - ✅ Clarify concepts that were difficult to understand.
 - ✅ Explore hypothetical situations that were not covered in the provided resources.
 - ✅ Perform a first layer of double-checking and verification of my work.
+- ✅ Improvise my content in a more readable manner.
 - ❌ Generate or solve the project's exercises.
 - ❌ Write the content of the `README.md`.
 
-All NetPractice exercises and the `README.md` were completed and configured **manually** by me.
-
----
-
-## Concepts
+I completed the NetPractice exercises and wrote the `README.md` **manually**.
 
 <br>
 
@@ -141,5 +661,5 @@ All NetPractice exercises and the `README.md` were completed and configured **ma
 
 # Submission Details
 
-As stated from the [![Static Badge](https://img.shields.io/badge/Subject_PDF-Readme_Requirements-white)](en.subject.pdf):
+As stated in the [![Subject PDF](https://img.shields.io/badge/Subject_PDF-Readme_Requirements-white)](en.subject.pdf):
 > 10 exported configuration files (one per level) must be placed at the repository root
