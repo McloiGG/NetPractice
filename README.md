@@ -106,18 +106,227 @@ After exporting the configuration file:
 
 # Resources
 
-| Resource                                                                                                                              |                                                                    Credit                                                                     | Purpose                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------ |
-| [Subject PDF](en.subject.pdf)                                                                                                         |               [![42 School](https://img.shields.io/badge/42_School-000000?logo=42&logoColor=white)](https://www.42network.org)                | Project requirements and objectives                    |
-| [Free CCNA v1.1 200-301 \| Complete Course](https://youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ&si=aLRmLDhJQE63_6Ah) | [![Jeremy's IT Lab](https://img.shields.io/badge/Jeremy's_IT_Lab-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@JeremysITLab) | Primary reference for the networking topics            |
-| [Writing on GitHub](https://docs.github.com/en/get-started/writing-on-github)                                                         |           [![GitHub Docs](https://img.shields.io/badge/GitHub_Docs-181717?logo=github&logoColor=white)](https://docs.github.com/en)           | Markdown formatting guide for the `README.md`          |
-| [Nicholas Andre Networking Lectures](https://www.youtube.com/watch?v=g_-vbdv-wT4&list=PLmqHle8aSO_EKziRtNpYM6XHgi-jlJoD1)             |  [![Nicholas Andre](https://img.shields.io/badge/Nicholas_Andre-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@mrnickandre)   | More info on networking by a great networking lecturer |
-| Wikipedia                                                                                                                             |     [![Wikipedia](https://img.shields.io/badge/Wikipedia-000000?logo=wikipedia&logoColor=white)](https://en.wikipedia.org/wiki/Main_Page)     | More detailed specifics and images                     |
+| Resource                                                                                                                                                                                                                                                                       |                                                                    Credit                                                                     | Purpose                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------ |
+| [Subject PDF](en.subject.pdf)                                                                                                                                                                                                                                                  |               [![42 School](https://img.shields.io/badge/42_School-000000?logo=42&logoColor=white)](https://www.42network.org)                | Project requirements and objectives                    |
+| [Free CCNA v1.1 200-301 \| Complete Course](https://youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ&si=aLRmLDhJQE63_6Ah) & [CCNP ENCOR v1.1 350-401 \| Complete Course](https://youtube.com/playlist?list=PLxbwE86jKRgOb2uny1CYEzyRy_mc-lE39&si=Nh0L1UuRZhRzlQU_) | [![Jeremy's IT Lab](https://img.shields.io/badge/Jeremy's_IT_Lab-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@JeremysITLab) | Primary reference for the networking topics            |
+| [Writing on GitHub](https://docs.github.com/en/get-started/writing-on-github)                                                                                                                                                                                                  |           [![GitHub Docs](https://img.shields.io/badge/GitHub_Docs-181717?logo=github&logoColor=white)](https://docs.github.com/en)           | Markdown formatting guide for the `README.md`          |
+| [Nicholas Andre Networking Lectures](https://www.youtube.com/watch?v=g_-vbdv-wT4&list=PLmqHle8aSO_EKziRtNpYM6XHgi-jlJoD1)                                                                                                                                                      |  [![Nicholas Andre](https://img.shields.io/badge/Nicholas_Andre-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@mrnickandre)   | More info on networking by a great networking lecturer |
+| Wikipedia                                                                                                                                                                                                                                                                      |     [![Wikipedia](https://img.shields.io/badge/Wikipedia-000000?logo=wikipedia&logoColor=white)](https://en.wikipedia.org/wiki/Main_Page)     | More detailed specifics and images                     |
 
 ---
 
 ## Concepts
 
+<details>
+<summary><strong>Networking</strong></summary>
+
+# Computer Network
+
+> A **computer network** is a collection of interconnected devices (nodes) that exchange data and share resources using agreed [communication protocols](#protocols).
+
+Devices communicate through **wired or wireless links**, either directly or through intermediary networking devices.
+> A network can operate independently without an Internet connection.
+
+## What are Nodes?
+
+### Nodes
+
+> A device or logical entity participating in a network. The term can include both endpoints and intermediary devices (i.e. [networking devices](#networking-devices)).
+
+### Hosts
+
+> An **end system** that runs applications which originate or consume network traffic (i.e. [clients and servers](#clients-and-servers)).
+
+### Network Interfaces
+
+> A physical (often called ports) or virtual attachment through which a device participates in a network.
+
+A device can have multiple interfaces. In IP networking, addresses are assigned to interfaces, one device can therefore have multiple IP addresses. Whereas each physical interface is usually assigned a globally unique MAC address, there are also locally unique MAC addresses covered in [Mac Adresses](#mac-addresses).
+
+## Clients and Servers
+
+> Also referred to as end-hosts or endpoints, **client** and **server** describe the roles that applications perform during communication.
+
+These roles do not require different types of hardware. A host
+can run both client and server software simultaneously.
+> Both clients and servers can send and receive data. The distinction describes their service relationship, not the direction of every individual message.
+
+A single server can serve multiple clients, and a single client can use multiple servers.
+
+Clients and servers may be computer programs run on the same machine and connect via inter-process communication techniques. But combined with internet sockets, programs may connect to a service operating on a possibly remote system through the [Internet protocol suite](#tcpip).
+
+### Client
+
+> A **client** is a piece of computer hardware or software that accesses a service made available by a **server**. The server is often (but not always) on another computer system, in which case the client accesses the service by way of a network.
+
+It accesses a server's services by sending a request to another program or a computer hardware or software on the server.
+
+#### Types
+
+![Client Types](assets/ClientTypes.png)
+
+- **Thick/Rich/Fat Clients:** performs the bulk of any data processing operations itself, and does not necessarily rely on the server.
+- **Thin Clients:** generally only presents processed data provided by an application server, which performs the bulk of any required data processing.
+- **Diskless Nodes:** a mixture of both, it processes locally, but relies on the server for storing persistent data.
+
+### Server
+
+> A **server** is a computer or software system that provides data, resources, or services to **clients** on a computer network.
+
+It first waits for potential clients to initiate connections that they may accept. Once it receives a request from the client it'll perform some action on it and send a response back, typically with a result or acknowledgment.
+
+#### Types of Servers
+
+There are many types of servers so I recommend checking out the table that Wikipedia provides.
+> Click [here](https://en.wikipedia.org/wiki/Server_(computing)#Purpose) for the table.
+
+## Network Scope
+
+### LAN (Local Area Network)
+
+> A **LAN** connects devices within a limited geographical area, typically under a common administration.
+
+It can include both **wired Ethernet** and **wireless Wi-fi** connections, linking devices through switches and access points.
+> A LAN can contain multiple [broadcast domains](#broadcast-domains). The term LAN does not necessarily mean one switch, one VLAN, or one IP subnet.
+
+### WAN (Wide Area Network)
+
+> A **WAN** provides connectivity across a wider geographical area, often connecting networks at different sites.
+
+WAN connectivity can use service-provider infrastructure and can be private or Internet-based.
+
+### The Internet
+
+> The **Internet** is a global system of interconnected networks that communicate using the [Internet Protocol Suite](#tcpip).
+
+The Internet provides connectivity for many services. The **World Wide Web** is one service operating over it.
+
+# Networking Devices
+
+## Switches
+
+> A **network switch (also called switching hub, bridging hub, Ethernet switch, and—by the IEEE—MAC bridge)** is networking hardware that connects devices on a local network by using frame switching to receive and forward **Ethernet frames** using **MAC addresses**.
+
+A network switch is a **multiport** network bridge that uses **MAC addresses** to forward data at the [data link layer (layer 2) of the OSI model](#layer-2-data-link-or-local-network-layer). [Layer-1](#layer-1-physical-layer) functionality is **required in all switches** in support of the higher layers.
+> **Layer-3 switches** or **multilayer switches** can also forward data at the [network layer (layer 3)](#layer-3-network-or-internet-layer) by additionally incorporating routing functionality.
+
+Switches are most commonly used as the **network connection point for hosts at the edge of a network**.
+
+### Bridging (Layer 2 Forwarding)
+
+A switch makes local forwarding decisions using a frame's
+**destination MAC address** and the forwarding information
+available for its **[VLAN](#vlans-virtual-local-area-networks)**.
+
+A switch maintains a **MAC address table**, recording the ports through which MAC addresses are reachable by an incoming frame's **source MAC address** and associates it with the receiving port.
+> Dynamic entries are updated as traffic arrives and eventually age out when they are no longer refreshed.
+
+After that, the switch looks up the frame's **destination MAC address**. Then forwards the frame only through the port(s) associated with the destination MAC address.
+> If the destination is reachable through the same port on which the frame arrived, the switch does not forward it back through that port.
+
+### MAC Address Table
+
+> A **MAC address table** records the ports through which MAC addresses are reachable.
+
+A typical unicast entry records:
+
+- **[MAC address](#mac-addresses):** the address reachable through the port.
+- **[VLAN](#vlans-virtual-local-area-networks):** the Layer 2 network to which the entry belongs.
+- **Port:** the interface used to reach that address.
+- **Entry type:** whether the entry is learned dynamically or configured statically.
+
+A port can lead to **multiple MAC addresses**, particularly
+when it connects to another switch.
+
+#### Content-Addressable Memory (CAM)
+
+The table is often implemented using high-speed **Content-Addressable Memory (CAM)**, which is why it is sometimes called a **CAM table**.
+
+> CAM, also called **associative memory**, supports lookup by content. A conventional RAM lookup supplies a memory address and retrieves data; a CAM lookup supplies search data and identifies a matching entry.
+>
+> The matching entry's location is a **memory location**, not a MAC or IP address.
+
+#### Dynamic Learning
+
+When a frame arrives, the switch examines its **source MAC address** and associates it with the **receiving port** in the appropriate VLAN.
+
+This information allows later frames addressed to that MAC address to be forwarded toward the learned port.
+
+> The switch **learns from the source address** and **forwards using the destination address**.
+
+#### Updating and Aging
+
+Further frames received from the same source refresh the dynamic entry.
+
+If that source is subsequently learned through another port in the same VLAN, the switch can update its port association.
+
+Entries that are not refreshed within the configured **aging time** are removed, preventing stale information from remaining indefinitely.
+
+#### Static Entries
+
+> A **static MAC address entry** is explicitly configured by an administrator, associating an address with a port and VLAN.
+
+Static entries do not expire through the normal dynamic aging timer. Changes to the intended path may therefore require an administrator to update the configuration.
+
+> A static forwarding entry does not itself assign a MAC address to the connected device.
+
+### Layer 2 Addressing Method
+
+> The definitons of unicast, multicast and broadcast is covered [here](#unicast-multicast-and-broadcast-assignment-ig-bit).
+
+**Known Unicast:** If the entry points to another eligible port, the switch forwards the frame through that port. If that is the receiving port, the switch filters the frame instead.
+
+**Unknown Unicast:** If there is no matching forwarding entry, the switch normally **floods** the frame within its [VLAN](#vlans-virtual-local-area-networks).
+> **Flooding** sends copies of a frame through eligible ports in its VLAN, excluding the receiving port. Eligible ports must belong to or carry that VLAN and be permitted to forward the traffic. Flooding therefore does not necessarily mean sending through every physical port on the switch.
+>> Flooding an unknown unicast frame does not change its destination address into a broadcast address.
+
+**Broadcast:** The switch floods the frame through eligible ports in the same [broadcast domain](#broadcast-domains), excluding the receiving port.
+
+**Multicast:** Multicast frames and are **flooded** to all points on the network in which a network interface controllers will choose to accept or ignore it based on criteria other than the matching of their individual MAC addresses. For example, based on a configurable list of accepted multicast MAC addresses.
+
+## Routers
+
+> **Core Function:** forwards IP packets between networks using destination IP addresses and routing information.
+
+It operates primarily at the [Network Layer](#layer-3-network-or-internet-layer).
+
+A router's routed interfaces attach it to different IP networks. Those interfaces can be physical or logical.
+
+### Routing Table
+
+A routing table describes how to reach destination networks.
+
+A route identifies a **destination prefix** and information used to determine the **outgoing interface** and, where necessary,
+a **next-hop gateway**.
+
+Routes can be:
+
+- **Directly connected:** derived from the router's active interface addressing.
+- **Static:** explicitly configured by an administrator.
+- **Dynamic:** learned through routing protocols.
+
+The router selects the **most specific matching route**. A default route is used when no more specific route matches.
+
+> See [How Is the Next Hop Determined?](#how-is-the-next-hop-determined) for the forwarding decision.
+
+### Default Gateway
+
+> A **default gateway** is the next-hop router used by a default route.
+
+On a typical Ethernet LAN, a host uses the IP address of a directly reachable router interface as its gateway.
+
+A more specific route takes precedence over the default route.
+
+### Forwarding Between Links
+
+The router processes the incoming link-layer encapsulation, examines the IP packet, and prepares an appropriate outgoing link-layer frame.
+
+When forwarding IPv4 traffic, it decrements the packet's **TTL**. A packet whose TTL expires is discarded.
+
+Each router independently chooses the next forwarding step.
+
+</details>
 <details>
 <summary><strong>TCP/IP</strong></summary>
 
@@ -338,9 +547,9 @@ Governments, including the US, **promoted** OSI as the preferred/recommended sta
 
 # OSI layers
 
-> # The lower layers of the OSI Model
+> # The bottom layers of the OSI Model
 >
-> Some [TCP/IP models](#the-tcpip-model) abstract the bottom 2 layers of the OSI model into one **Network Access/Link Layer** because both handle communication over the **local network**.
+> In TCP/IP networks, the responsibilities of the bottom 2 layers (L1 & L2) are often implemented together by networking hardware and supporting software to provide local network connectivity. Thus the [TCP/IP Model](#the-tcpip-model) groups them under a broader **Network Access/Link Layer**, commonly compared with OSI Layers 1 and 2.
 
 ## Layer 1: Physical Layer
 
@@ -367,21 +576,85 @@ It defines how data is formatted for transmission over a physical medium. It det
 
 It uses **MAC (Media Access Control) addresses** to identify network interfaces and performs **[hop-to-hop delivery](#what-is-a-hop)** on **frames** across a local link using **node-to-node delivery**.
 
-### What is Node-to-Node Delivery?
+> # MAC Addresses
+>
+> A **MAC (Medium/Media Access Control) address**, often referred to as the **burned-in address**, or as an **Ethernet hardware address**, **hardware address**, or **physical address**, is a unique identifier assigned to a network interface controller (NIC) for communication at the Data Link Layer.
+>
+> A device can have multiple physical or virtual network interfaces, each using its own MAC address.
+>
+> ## MAC Address Structure
+>
+> A MAC address is a **48-bit (6-byte)** identifier divided into **6 octets**, with each octet containing **8 bits**.
+>
+> ![MAC Address Structure](assets/MACStructure.png)
+>
+> The most significant (first) octet contains two significant control bits that dictates the address type, b0 (least significant bit) and b1 (second least significant):
+>
+> |  bit   |                                     **name**                                     |      **value `0`**       |    **value `1`**     |
+> | :----: | :------------------------------------------------------------------------------: | :----------------------: | :------------------: |
+> | **b0** | [I/G (Individual/Group) bit](#unicast-multicast-and-broadcast-assignment-ig-bit) |        individual        |        group         |
+> | **b1** |       [U/L (Universal/Local) bit](#universal-and-local-assignment-ul-bit)        | universally administered | locally administered |
+>
+> ## MAC Address Format
+>
+> MAC addresses are commonly written as **12 hexadecimal digits**, with each digit representing **4 bits**. Therefore, two hexadecimal digits make up one **octet (8 bits)**.
+>> Separators such as `:`, `-`, or `.` are only formatting conventions, and hexadecimal letters are **case-insensitive**.
+>>
+>> For example, all of the following represent the same MAC address:
+>
+> ![Format of MAC Address](assets/MACFormat.png)
+>
+> ### Universal and Local Assignment (U/L bit)
+>
+> - **Universally Administered Address (UAA)**
+>
+>   Assigned by the device manufacturer.
+>
+>   The first three octets (24 bits) in transmission order contain the **Organizationally Unique Identifier (OUI)**. The organization assigns the remaining octets that makes it unique.
+>   > **OUI** uniquely identifies a vendor, manufacturer, or other organization.
+>
+> - **Locally Administered Address (LAA)**
+>
+>   Assigned locally by software or an administrator.
+>
+>   It can override the burned-in address of a physical device.
+>
+> > The familiar **24-bit OUI + 24-bit extension** structure applies to MA-L assignments, rather than every MAC address.
+>
+> #### Unicast, Multicast and Broadcast Assignment (I/G bit)
+>
+> - **Unicast:** addresses to an **individual interface** one-to-one transmission from one point (one sender) in the network to another point (one receiver) within a collision domain.
+> - **Multicast:** addresses to a **group of interfaces** simultaneously, can be one-to-many or many-to-many.
+> - **Broadcast:** addresses by **flooding all interfaces** in the local [broadcast domain](#broadcast-domains) using a one-to-all association.
+>   > The Ethernet broadcast address is **`FF:FF:FF:FF:FF:FF`**, with all 48 bits set to `1`.
+
+### Node-to-Node Delivery?
 
 > **Node-to-node delivery** describes the transfer of a frame between adjacent devices along a local network path.
 
-Example:
+A frame may pass through intermediate switches before reaching its intended local recipient.
 
-```text
-PC → Switch → Router
-```
+Ordinary Ethernet bridging preserves the frame's source and destination MAC addresses. An intermediate switch does not replace the source address with its own.
+> This is partly why [switches are not considered a hop](#why-layer-2-switches-do-not-count-as-hops).
 
-The frame travels from the PC to the switch, then from the switch to the router.
+Layer 2 provides the local delivery needed to reach the [next hop](#what-is-a-hop) selected by Layer 3.
 
-The switch *(layer 2)* forwards the frame without changing its source or destination MAC address. The destination MAC remains that of the router's receiving interface. This is partly why [switches are not considered a hop](#why-layer-2-switches-do-not-count-as-hops).
+### Broadcast Domains
 
-> Layer 2 provides the local delivery needed to reach the [next hop](#what-is-a-hop) selected by Layer 3.
+> A **broadcast domain** is the set of interfaces that a Layer 2 broadcast can reach through the network's forwarding connections.
+
+All devices conected to a switch are in the same broadcast domain, thus switches can extend a broadcast domain across multiple ports and links.
+> VLANs can be used to divide up broadcast domains in a switch.
+
+**Routing interfaces** form boundaries between Layer 2 broadcast domains. Ordinary IP routing (Routers) does not carry the original Ethernet broadcast frame into another domain.
+
+> A broadcast domain can span multiple switches, while one switch can support multiple broadcast domains through VLANs.
+
+### VLANs (Virtual Local Area Networks)
+
+> A **VLAN** logically separates a switched network into distinct Layer 2 broadcast domains.
+
+Devices can share physical switching infrastructure while belonging to different VLANs.
 
 ### Protocols Used
 
@@ -405,7 +678,7 @@ It uses **IP addresses** to identify the hosts in the network.
 > A **hop** is one step towards the next router or directly reachable destination host along a packet's path.
 
 Layer 3 selects the **next hop**, and Layer 2 carries the
-packet across the local network to reach it using **[node-to-node delivery](#what-is-node-to-node-delivery)**.
+packet across the local network to reach it using **[node-to-node delivery](#node-to-node-delivery)**.
 
 #### Why Layer 2 Switches Do Not Count as Hops
 
