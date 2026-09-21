@@ -26,11 +26,12 @@
 
 Through interactive problem-solving, this general practical exercise features **10 progressive levels** that help you master the following networking concepts.
 
-
 - [TCP/IP addressing](#tcpip-addressing)
 - [subnet masks](#subnet-masks)
 - [default gateways](#default-gateways)
 - [routing](#routing)
+- [switches](#switches)
+- [routers](#routers)
 - [OSI layers](#osi-layers)
 
 You learn by troubleshooting and configuring non-functioning network diagrams in a browser-based training that provides practical experience in network administration, which helps in real-world system administration and networking challenges.
@@ -287,44 +288,21 @@ Static entries do not expire through the normal dynamic aging timer. Changes to 
 
 ## Routers
 
-> **Core Function:** forwards IP packets between networks using destination IP addresses and routing information.
+> A **router** is a computer and networking device that forwards **IP packets** between computer networks, including internetworks such as the global Internet. It uses the packet's destination IP address and routing information to determine where the packet should be forwarded next.
 
-It operates primarily at the [Network Layer](#layer-3-network-or-internet-layer).
+Routers perform the *traffic directing* functions on the [Internet](#layer-3-network-or-internet-layer). They connect different IP networks through their network interfaces, which can be either [physical](#layer-1-physical-layer) or logical.
+> A router is considered a [layer-3](#layer-3-network-or-internet-layer) device because its primary forwarding decision is based on the information in the layer-3 IP packet, specifically the destination IP address.
 
-A router's routed interfaces attach it to different IP networks. Those interfaces can be physical or logical.
+A router can serve as a [default gateway](#default-gateways), providing a forwarding path beyond a host's local network. Routers may also be used to connect two or more logical groups of computer devices known as [subnets](#subnet-masks), each identified by a network prefix.
 
-### Routing Table
+### Forwarding
 
-A routing table describes how to reach destination networks.
+When a router receives an **IP packet**, it examines the packet's **destination IP address** and compares it with the routes in its routing table. It selects the **most specific matching destination prefix**, then forwards the packet through the appropriate outgoing interface.
 
-A route identifies a **destination prefix** and information used to determine the **outgoing interface** and, where necessary,
-a **next-hop gateway**.
+The destination may be on a **directly connected network**, or the router may forward the packet to a **next-hop router** that continues the packet's journey.
 
-Routes can be:
-
-- **Directly connected:** derived from the router's active interface addressing.
-- **Static:** explicitly configured by an administrator.
-- **Dynamic:** learned through routing protocols.
-
-The router selects the **most specific matching route**. A default route is used when no more specific route matches.
-
-> See [How Is the Next Hop Determined?](#how-is-the-next-hop-determined) for the forwarding decision.
-
-### Default Gateway
-
-> A **default gateway** is the next-hop router used by a default route.
-
-On a typical Ethernet LAN, a host uses the IP address of a directly reachable router interface as its gateway.
-
-A more specific route takes precedence over the default route.
-
-### Forwarding Between Links
-
-The router processes the incoming link-layer encapsulation, examines the IP packet, and prepares an appropriate outgoing link-layer frame.
-
-When forwarding IPv4 traffic, it decrements the packet's **TTL**. A packet whose TTL expires is discarded.
-
-Each router independently chooses the next forwarding step.
+Basic IP forwarding only requires the router to examine information needed to make the forwarding decision, primarily the packet's destination IP address. It does not normally need to inspect the packet's **payload** or keep a record of previously forwarded packets.
+> Additional features, such as **firewalls, NAT, and traffic monitoring**, may inspect more information or maintain additional state.
 
 </details>
 <details>
@@ -670,8 +648,89 @@ Wi-Fi (IEEE 802.11)
 It uses **IP addresses** to identify the hosts in the network.
 
 **Routers** operate primarily at Layer 3 and examine Layer 3 information, especially the destination IP address, to determine where to forward the message toward its destination host.
-
 > The destination IP remains the same throughout the network path (Assuming no **Network Address Translation (NAT)** that can rewrite IP addresses).
+
+> # TCP/IP Addressing
+>
+> > An **Internet Protocol address (IP address)** is a numerical label that is assigned to a device connected to a computer network that uses the **Internet Protocol** for communication.
+>
+> IP addresses serve two main functions:
+>
+> - network interface identification
+> - location addressing
+>
+> A device can have **multiple network interfaces**, and an interface can have **multiple IP addresses**.
+>
+> ## IPv4
+>
+> > **Internet Protocol version 4 (IPv4)** uses **32-bit addresses**, providing an address space containing **2^32 possible values**.
+>
+> ### IPv4 Address Format
+>
+> IPv4 are most often written in **dot-decimal notation**, which consists of **four octets of the address expressed individually** in decimal numbers (without any extra leading zeros) and separated by periods.
+>
+> ![IPv4 Address Format](assets/IPv4Format.png)
+>
+> Each number represents an **8-bit octet**, giving it a range of **`0` to `255`**. Together, the four octets form the complete **32-bit address**.
+>
+> CIDR notation combines the address with its routing prefix in a compact format, in which the address is followed by a slash character (/) and the count of leading consecutive 1 bits in the routing prefix (subnet mask).
+>
+> ### Subnet Masks
+>
+> > A **subnet mask** is a 32-bit value that identifies which bits of an IPv4 address belong to the network portion.
+>
+> In modern classless addressing, a subnet mask consists of consecutive **`1` bits** followed by consecutive **`0` bits**:
+>
+> - **`1` bits:** identify the network portion.
+> - **`0` bits:** identify the host portion.
+>
+> A **bitwise AND** between the address and its subnet mask produces the **network address**.
+>
+> The same boundary can be written as a **prefix length**, using `/` followed by the number of network bits.
+> > A longer prefix leaves fewer host bits, producing a smaller address block.
+>
+> ### Special-use addresses
+>
+> The Internet Engineering Task Force (IETF) and IANA have restricted from general use various reserved IP addresses for special purposes.
+> > All these addresses are covered in the [Wikipedia](https://en.wikipedia.org/wiki/IPv4#Special-use_addresses).
+>
+> ## IPv6
+>
+> > **Internet Protocol version 6 (IPv6)** uses **128-bit addresses**, providing an address space containing **2^128 possible values**.
+>
+> IPv6 greatly expands the available address space and introduces changes to address configuration, neighbor discovery, and packet handling.##### IPv6 Address Format.
+>
+> ### IPv6 Address Format
+>
+> IPv6 addresses are written as **eight groups of hexadecimal digits**, separated by colons.
+>
+> Each group represents **16 bits** and contains up to **four hexadecimal digits**.
+>
+> The written address can be shortened:
+>
+> - **Leading zeros** within a group can be omitted.
+> - A consecutive sequence of all-zero groups can be replaced with **`::`**, but only once in an address.
+>
+> > The recommended format uses lowercase letters and compresses the longest sequence of two or more zero groups. If sequences are equally long, the first is compressed.
+
+### Routing
+
+> **Routing** is the process of selecting a path for traffic within a network or between multiple networks. In a broad sense, it can refer to forwarding traffic using either **Layer 2 bridging** or **Layer 3 IP routing**. In a narrower and more common sense, however, **routing refers specifically to IP routing**, where routers select paths between different IP networks.
+
+**IP routing** relies on the hierarchical structure of IP addresses, where a network prefix can represent a group of destinations. This allows a single routing-table entry to describe a route to an entire network rather than to each device individually. Because IP addresses are assigned according to network structure, destinations sharing a prefix are generally topologically closer to one another within the network.
+
+The router normally preserves the packet's **source and destination IP addresses**, while replacing the incoming link-layer encapsulation with one appropriate for the outgoing link.
+> Features such as **Network Address Translation (NAT)** can modify IP addresses. Address translation is separate from ordinary routing.
+
+#### Path selection
+
+When multiple routes match a destination, a router selects the most appropriate route according to its routing rules.
+
+1. **Longest prefix match:** The route with the longest matching prefix is preferred because it identifies the destination most specifically.
+2. **Metric:** If multiple routes have the same prefix length and were learned from the same routing protocol, the route with the preferred metric is selected. The meaning of the metric depends on the routing protocol.
+3. **Administrative distance:** When routes come from different sources, such as different routing protocols or static configuration, administrative distance can be used to determine which source is preferred.
+
+The selected route determines the **next hop** or outgoing interface used to forward the packet.
 
 ### What is a Hop?
 
@@ -708,6 +767,31 @@ Each router repeats this decision using its own routing table.
 On an IPv4 Ethernet network, the sender needs the next hop's **MAC address**.
 
 It checks its ARP cache and, if necessary, sends an **ARP (Address Resolution Protocol) request** to resolve the chosen next-hop IP address to a MAC address.
+
+### Default Gateways
+
+> A **default gateway** is the next-hop router used when a device selects its **default route** to forward a packet.
+
+A host checks its **routing table** to determine how to reach a destination. If no more-specific route matches the destination IP address, it uses the default route, when one is available.
+
+On a typical Ethernet LAN, the gateway address identifies a **router interface reachable on the local network**. The host sends the packet to that router, which independently determines the next forwarding step.
+
+> A **default route** is an entry in the routing table. The **default gateway** is the router through which that route sends traffic.
+
+The default route is represented by:
+
+- **IPv4:** `0.0.0.0/0`
+- **IPv6:** `::/0`
+
+The `/0` prefix fixes no destination bits, allowing it to match any destination. More-specific matching routes take precedence.
+
+> A default gateway is not necessarily used for every remote destination. A more-specific route may select a different router.
+
+For unicast delivery over Ethernet, the host resolves the gateway's IP address to a **MAC address** using **ARP** for IPv4 or **Neighbor Discovery** for IPv6.
+
+The outgoing frame addresses the gateway, while the enclosed IP packet retains the **intended destination's IP address** during ordinary routing.
+
+> A host can communicate with directly reachable devices without a default gateway. It needs a suitable route through a router to reach remote networks.
 
 ### Protocols Used
 
